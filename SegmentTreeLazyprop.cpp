@@ -3,10 +3,12 @@ class SegmentTree{
 
 public: 
 	vector<int> seg; 
-	vector<int> lazy; 
+	vector<int> lazy;
+	int n; 
 	SegmentTree(int n, vector<int>&arr){
 		seg.resize(4*n, 0);
 		lazy.resize(4*n, 0);
+		this -> n = n; 
 		build(0, n - 1, 0, arr);
 	}	
 
@@ -20,6 +22,13 @@ public:
 		build(low, mid, ind * 2 + 1, arr); 
 		build(mid + 1, high, ind * 2 + 2, arr); 
 		seg[ind] = seg[ind*2 + 1] + seg[ind * 2 + 2];
+	}
+	void update(int l, int r, int val){
+		update(0, n - 1, 0, l, r, val);
+	}
+
+	ll query(int l, int r){
+		return query(0, n - 1, 0, l, r);
 	}
 
 	void update(int low, int high, int ind, int l, int r, int val){
