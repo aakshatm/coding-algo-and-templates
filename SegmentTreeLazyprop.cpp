@@ -1,5 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std; 
 
 class SegmentTree{
 
@@ -96,22 +94,3 @@ public:
 	}
 
 };
-
-
-int main(){
-	#ifndef ONLINE_JUDGE
-	freopen("input.txt", "r", stdin);
-	freopen("output.txt", "w", stdout);
-	#endif
-
-
-    vector<int> arr = {1, 4, 2, 1, 3}; 
-
-    SegmentTree st(arr.size(), arr); 
-	cout << st.query(0, arr.size() - 1, 0, 1, 3) << endl; 
-	st.update(0, arr.size() - 1, 0, 1, 3, 2); 
-	cout << st.query(0, arr.size() - 1, 0, 1, 3) << endl; 
-
-
-	return 0; 
-}
