@@ -27,7 +27,7 @@ struct Hash{
         }
     }
 
-    pair<int, int> computeHash(int left, int right){
+    pair<int, int> getHash(int left, int right){
         left++; 
         right++; 
         return {(prefixHash[right].first - (prefixHash[left - 1].first * powers[right - left + 1].first) % mod + mod) % mod, 
